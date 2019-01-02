@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Writers from './Writers'
 import api from '../api/api'
-import NotFound from './Errors/404'
+import { Notfound } from './Errors'
 
 export default class extends Component {
   state = {
@@ -34,7 +34,7 @@ export default class extends Component {
             <Route path="/writers" render={
               (props) => <Writers {...props} writers={writers}/>
             }/>
-            <Route component={NotFound} />
+            <Route render={() => <Notfound />}/>
           </Switch>
         </Fragment>
       </BrowserRouter>

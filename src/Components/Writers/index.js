@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link, Route } from 'react-router-dom'
 import Writer from './Writer'
-import NotFound from '../Errors/404'
+import { Notfound } from '../Errors'
 
 export default ({match: {url},writers}) => 
   <Fragment>
@@ -21,7 +21,7 @@ export default ({match: {url},writers}) =>
         const writer =  writers.find(writer => writer.id === match.params.writerId)
         if (!writer) {
           console.log(writer, 'hererere')
-          return <NotFound />
+          return <Notfound />
         }
         return <Writer  {...writer}/>
       }
